@@ -1,17 +1,20 @@
-from flask import Flask, request, g, session, abort, redirect
+from flask import Flask, request, g, session, abort, redirect, render_template
 from flask.helpers import make_response
 
+from flask_bootstrap import Bootstrap
+
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 
-@app.route('/index')
+@app.route('/')
 def index():
     return '<h1>Hello World</h1>'
 
 
-@app.route('/usr/<int:id>')
-def usr(id):
-    return f'<h1>Hello Usr {id}</h1>'
+@app.route('/usr/<name>')
+def usr(name):
+    return render_template('user.html', name=name)
 
 
 @app.route('/urlMap')
