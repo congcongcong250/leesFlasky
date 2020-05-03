@@ -18,8 +18,8 @@ Flasky with base block from boostrap
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/hole">Hole</a></li>
-        <li><a href="/notfound">NotFound</a></li>
-        <li><a href="/usr/superman">User</a></li>
+        <li><a href="{{ url_for('notfound') }}">NotFound</a></li>
+        <li><a href="{{ url_for('usr', name='batman') }}">User</a></li>
         <li><a href="/urlMap">urlMap</a></li>
       </ul>
     </div>
@@ -33,3 +33,7 @@ Flasky with base block from boostrap
 {% block styles %}
 {{ super() }}
 {% endblock styles %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock scripts %}

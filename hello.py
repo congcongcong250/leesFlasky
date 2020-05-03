@@ -46,7 +46,7 @@ def tuple_return():
 @app.route('/hole')
 def hole():
     response = make_response(
-        '<h1>Response object to Hole with cookie</h1><p id=\'x\'>loading</p><script>setTimeout(function() {document.getElementById(\'x\').textContent = document.cookie;},4000)</script>')
+        render_template('hole.html'))
     response.set_cookie('answer', '42')
     return response
 
