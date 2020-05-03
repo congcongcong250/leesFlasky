@@ -50,6 +50,11 @@ def hole():
     response.set_cookie('answer', '42')
     return response
 
+# Error handling
+@app.errorhandler(418)
+def im_a_teapot(e):
+    return render_template('418.html'), 418
+
 
 if __name__ == '__main__':
     app.run()
