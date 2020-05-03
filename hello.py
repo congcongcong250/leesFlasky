@@ -14,7 +14,8 @@ def index():
 
 @app.route('/usr/<name>')
 def usr(name):
-    return render_template('user.html', name=name)
+    mock_list = ['Apple', 'Pineapple', 'Pen', 'Pencil']
+    return render_template('user.html', name=name, list=mock_list)
 
 
 @app.route('/urlMap')
