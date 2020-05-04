@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{{ moment.locale('zh-CN') }}
+{% endblock scripts %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1 class="my-title">Hello Home Page</h1>
+    </div>
+    <p>The local date and time is {{ moment(current_time).format('LLL') }}. </p>
+    <p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+</div>
+{% endblock content %}
