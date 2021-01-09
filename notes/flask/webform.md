@@ -15,3 +15,9 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 > Flask-WTF requires a secret key to be configured in the application because this key is part of the mechanism the extension uses to protect all forms against cross-site request forgery (CSRF) attacks.
 
 We could also using auth, or recaptcha to prevent it.
+
+## Components / Fields
+
+Construct `fields` in code and injected into ninja template.
+
+`stringInput = StringField('What is your name?', validators=[DataRequired()])`

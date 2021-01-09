@@ -5,7 +5,13 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
 
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard_to_guess_string'
+
 bootstrap = Bootstrap(app)
 mmt = Moment(app)
 
@@ -57,6 +63,11 @@ def hole():
 @app.errorhandler(418)
 def im_a_teapot(e):
     return render_template('418.html'), 418
+
+
+class NameForm(FlaskForm):
+    name = StringField("What's your name?", validator=[DataRequired()])
+    submit = SubmitField('Submit')
 
 
 if __name__ == '__main__':
